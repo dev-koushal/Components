@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIke_Dislike</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: rgb(104, 104, 66);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        height: 500px;
+        width: 400px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+      }
+
+      .card img {
+        height: 50%;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: 0px -210px;
+      }
+
+      h3 {
+        font-size: 50px;
+      }
+      .hh {
+        color: rgba(248, 2, 51, 0.74);
+      }
+
+      .btns .like {
+        margin-top: 50px;
+        padding: 10px;
+        border: none;
+        background-color: hotpink;
+        border-radius: 50px;
+        font-weight: 600;
+      }
+      .card i {
+        position: absolute;
+        color: white;
+        font-size: 70px;
+        top: 50%;
+        left: 50%;
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.3s ease;
+        pointer-events: none; /* So it doesn't block the image click */
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://images.pexels.com/photos/1637859/pexels-photo-1637859.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="car-image"
+      />
+      <i class="ri-heart-fill"></i>
+      <h3 class="hh">Unliked</h3>
+      <h6>500</h6>
+      <div class="btns">
+        <button class="like">Like</button>
+      </div>
+    </div>
+
+    <script>
+      const dblclick = document.querySelector("img");
+      const icon = document.querySelector("i");
+      const liked = document.querySelector("h3");
+      const likes = document.querySelector(".like");
+      const count = document.querySelector("h6");
+
+      likes.addEventListener("click", () => {
+        let currentCount = parseInt(count.innerHTML);
+
+        if (liked.innerHTML === "Unliked") {
+          liked.innerHTML = "Liked";
+          liked.style.color = "green";
+          likes.innerHTML = "Liked";
+          likes.style.backgroundColor = "grey";
+          count.innerHTML = currentCount + 1;
+          likes.style.tansform.enlarge;
+        } else {
+          liked.innerHTML = "Unliked";
+          liked.style.color = "rgba(248, 2, 51, 0.74)";
+          likes.innerHTML = "Like";
+          likes.style.backgroundColor = "hotpink";
+          count.innerHTML = currentCount - 1;
+        }
+      });
+
+      // let flag = 0;
+
+      // dblclick.addEventListener("dblclick", () => {
+      //   if (flag === 0) {
+      //     icon.style.transform = "translate(-60%, -180%) scale(1)";
+
+      //     flag = 1;
+      //     setTimeout(() => {
+      //       icon.style.transform = "translate(-60%, -180%) scale(0)";
+      //       flag = 0;
+      //     }, 500);
+
+      //   }
+      // });
+      dblclick.addEventListener("dblclick", () => {
+        icon.style.transform = "translate(-60%, -180%) scale(1)";
+        liked.innerHTML = "Liked";
+          liked.style.color = "green";
+          likes.innerHTML = "Liked";
+          likes.style.backgroundColor = "grey";
+
+        setTimeout(() => {
+          icon.style.transform = "translate(-60%, -180%) scale(0)";
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
