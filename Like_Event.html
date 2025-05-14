@@ -52,7 +52,7 @@
         margin-top: 50px;
         padding: 10px;
         border: none;
-        background-color: hotpink;
+        background-color: rgba(128, 128, 128, 0.715);
         border-radius: 50px;
         font-weight: 600;
       }
@@ -64,8 +64,7 @@
         left: 50%;
         opacity: 0.7;
         transform: translate(-50%, -50%) scale(0);
-        transition: transform 0.3s ease;
-        pointer-events: none; /* So it doesn't block the image click */
+        pointer-events: none; /* So it doesn't block the image click*/
       }
     </style>
     <link
@@ -101,14 +100,14 @@
           liked.innerHTML = "Liked";
           liked.style.color = "green";
           likes.innerHTML = "Liked";
-          likes.style.backgroundColor = "grey";
+          likes.style.backgroundColor = "hotpink";
           count.innerHTML = currentCount + 1;
           likes.style.tansform.enlarge;
         } else {
           liked.innerHTML = "Unliked";
           liked.style.color = "rgba(248, 2, 51, 0.74)";
           likes.innerHTML = "Like";
-          likes.style.backgroundColor = "hotpink";
+          likes.style.backgroundColor = "rgba(128, 128, 128, 0.715)";
           count.innerHTML = currentCount - 1;
         }
       });
@@ -128,15 +127,17 @@
       //   }
       // });
       dblclick.addEventListener("dblclick", () => {
-        icon.style.transform = "translate(-60%, -180%) scale(1)";
-        liked.innerHTML = "Liked";
+        if (liked.innerHTML !== "Liked") {
+          icon.style.transform = "translate(-60%, -180%) scale(1)";
+          liked.innerHTML = "Liked";
           liked.style.color = "green";
           likes.innerHTML = "Liked";
           likes.style.backgroundColor = "grey";
-
-        setTimeout(() => {
-          icon.style.transform = "translate(-60%, -180%) scale(0)";
-        }, 500);
+          count.innerHTML = parseInt(count.innerHTML) + 1; // Increase like count on double-click
+          setTimeout(() => {
+            icon.style.transform = "translate(-60%, -180%) scale(0)";
+          }, 600);
+        }
       });
     </script>
   </body>
