@@ -17,13 +17,14 @@
       }
 
       body {
-        background-color: rgb(104, 104, 66);
+        background-color: rgba(145, 101, 101, 0.774);
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       .card {
+        
         height: 500px;
         width: 400px;
         background-color: white;
@@ -63,6 +64,7 @@
         top: 50%;
         left: 50%;
         opacity: 0.7;
+        transition: all ease-in-out;
         transform: translate(-50%, -50%) scale(0);
         pointer-events: none; /* So it doesn't block the image click*/
       }
@@ -136,7 +138,7 @@
           count.innerHTML = parseInt(count.innerHTML) + 1; // Increase like count on double-click
           setTimeout(() => {
             icon.style.transform = "translate(-60%, -180%) scale(0)";
-          }, 600);
+          }, 700);
         }
       });
     </script>
