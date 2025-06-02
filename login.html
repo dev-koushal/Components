@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- STYLE-SHEETS -->
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    html,body{
+        height: 100%;
+        width: 100%;
+    }
+    body{
+        font-family: monospace;
+        background-color: rgba(255, 0, 0, 0.225);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    .wrapper{
+        background-color: white;
+        border-radius: 20px;
+        height: 50vh;
+        width: 300px;
+        padding: 30px;
+        text-align: center;
+        position: relative;
+    }
+    h1{
+        text-align: center;
+    }
+    .name{
+        font-size: 25px;
+        margin: 20px 0 20px 0;
+    }
+    .Email{
+        font-size: 25px;
+        margin: 20px 0 20px 0;
+    }
+    #nam{
+        border: none;
+        background-color: rgba(255, 105, 180, 0.499);;
+        font-size: 15px;
+        border-radius: 1000px;
+        padding: 10px;
+    }
+    #gmail{
+        border: none;
+        background-color: rgba(255, 105, 180, 0.499);
+        font-size: 15px;
+        border-radius: 1000px;
+        padding: 10px;
+    }
+    button{
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        position: absolute;
+        right: 130px;
+        bottom: 10px;
+        border-radius: 1000px;
+       background: rgba(255, 105, 180, 0.499);
+    }
+
+
+    </style>
+    <!-- JAVA-SCRIPT -->
+     
+    
+</head>
+<body>
+    <form id="myform">
+        <div class="wrapper">
+        <h1>LOGIN</h1>
+        <div class="name">
+            <label for="nam">Name:</label>
+            <input id="nam" type="text" placeholder="Enter the name" > 
+        </div>
+         <div class="Email">
+            <label for="gmail" >Email:</label>
+            <input id="gmail" type="text" placeholder="Enter the gmail" > 
+        </div>
+        <button>Submit</button>
+    </div>
+    </form>
+
+    <script defer>
+  const nam = document.querySelector('#nam');
+  const email = document.querySelector('#gmail');
+  const form = document.querySelector('#myform');
+
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const naam = nam.value.trim();
+    const mail = email.value.trim();
+
+    localStorage.setItem("user", naam);
+    localStorage.setItem("E-mail", mail);
+    newuser();
+  });
+
+  function newuser(){
+    
+  }
+
+
+
+    </script>
+</body>
+</html>
