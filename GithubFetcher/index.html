@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github-Fetch</title>
+    <style>
+        img{
+            height: 12rem;
+            border-radius: 8px;
+            box-shadow: 10px 10px 20px gray;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="github-fetcher">
+      <label for="github-url">Enter GitHub URL:</label>
+      <input type="text" id="github-url" name="github-url" placeholder="" />
+      <button id="fetch-button">Fetch</button>
+      <div id="result">
+        <h1></h1>
+      </div>
+    </div>
+    <script>
+      const input = document.getElementById("github-url");
+      const fetchButton = document.getElementById("fetch-button");
+      const resultDiv = document.getElementById("result");
+      const span = document.querySelector("h1");
+      fetchButton.addEventListener("click", () => {
+        const username = input.value;
+        localStorage.setItem("name", "dev-koushal");
+        fetch(
+          `https://api.github.com/users/${
+            username || localStorage.getItem("name")
+          }`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data); // Data is Coming
+            span.innerHTML = ` <h1>User Name : ${
+              localStorage.getItem("name") || data.login
+            }</h1>
+            <h3>followers : You have ${data.following} Followers.</h3> 
+            <p>${data.name}</p>
+            <p>Repositories : ${data.public_repos}</p>
+            <div><a href = "https://github.com/users/dev-koushal"><img src= "${data.avatar_url}"/></a></div>
+            
+            `;
+          });
+      });
+      
+    </script>
+  </body>
+</html>
